@@ -2,18 +2,26 @@
 
 <div class="container">
   <h1>Show All Cohorts</h1>
-  <ul>
-    <% cohorts.forEach((cohort) =>{ %>
-    <li>
-      <img src="<%= cohort.logo_url %>" alt="<%= cohort.name_of_team %>" />
-      <h2>
-        <a href="/cohorts/<%= cohort.id %>"><%= cohort.name_of_team %></a>
-      </h2>
-      <p><%= cohort.name_of_members%></p>
-    </li>
-  </ul>
-  <a href="/cohorts/<%= cohort.id %>" class="btn btn-success">Show Cohort</a>
-
-  <% }) %>
+  <div class="d-flex flex-row flex-wrap">
+  <% cohorts.forEach((cohort) =>{ %>
+  <div class="card mx-2" style="width: 18rem">
+    <div class="card-body">
+      <div class="d-flex flex-row">
+        <img
+          class="rounded-circle w-25"
+          src="<%= cohort.logo_url %>"
+          alt="<%= cohort.name_of_team %>"
+        />
+        <h5 class="card-title mt-auto p-2"><%= cohort.name_of_team %></h5>
+      </div>
+      <p class="card-text"><%= cohort.name_of_members%></p>
+      <a href="/cohorts/<%= cohort.id %>" class="btn btn-primary"
+        >Show Cohort</a
+      >
+    </div>
 </div>
-<%- include('../partials/footer') %>
+    <% }) %>
+  </div>
+  </div>
+  <%- include('../partials/footer') %>
+</div>
