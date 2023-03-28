@@ -1,0 +1,15 @@
+<%- include('../partials/header') %>
+
+<div class="container">
+  <h1>Show All Cohorts</h1>
+  <ul>
+    <% cohorts.forEach(function(cohort) { %>
+    <li>
+      <img src="<%= cohort.logoUrl %>" alt="<%= cohort.name %>" />
+      <a href="/cohorts/<%= cohort.id %>"><%= cohort.name %></a>
+      <p><%= cohort.members%></p>
+    </li>
+    <% }) %>
+  </ul>
+</div>
+<%- include('../partials/footer') %>
