@@ -31,6 +31,9 @@ app.get('/', (request, response) => {
   response.render('welcome');
 });
 
+const rootRouter = require('./routes/root');
+app.use('/', rootRouter);
+
 const cohortRouter = require('./routes/cohorts');
 app.use('/cohorts', cohortRouter);
 

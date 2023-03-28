@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-router.get('/cohorts', (request, response) => {
-  response.render('new');
+router.get('/', (request, response) => {
+  response.render('welcome');
 });
 
 module.exports = router;
