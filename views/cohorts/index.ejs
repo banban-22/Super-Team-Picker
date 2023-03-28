@@ -3,13 +3,17 @@
 <div class="container">
   <h1>Show All Cohorts</h1>
   <ul>
-    <% cohorts.forEach(function(cohort) { %>
+    <% cohorts.forEach((cohort) =>{ %>
     <li>
-      <img src="<%= cohort.logoUrl %>" alt="<%= cohort.name %>" />
-      <a href="/cohorts/<%= cohort.id %>"><%= cohort.name %></a>
-      <p><%= cohort.members%></p>
+      <img src="<%= cohort.logo_url %>" alt="<%= cohort.name_of_team %>" />
+      <h2>
+        <a href="/cohorts/<%= cohort.id %>"><%= cohort.name_of_team %></a>
+      </h2>
+      <p><%= cohort.name_of_members%></p>
     </li>
-    <% }) %>
   </ul>
+  <a href="/cohorts/<%= cohort.id %>" class="btn btn-success">Show Cohort</a>
+
+  <% }) %>
 </div>
 <%- include('../partials/footer') %>

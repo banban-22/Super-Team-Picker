@@ -20,11 +20,12 @@ router.get('/new', (request, response) => {
   response.render('cohorts/new');
 });
 
-router.post('/', (request, response) => {
-  const { content } = request.body;
-  console.log('content', content);
+router.post('/new', (request, response) => {
+  console.log(request.body);
+  const { logo_url, name_of_team, name_of_members } = request.body;
+
   db('teams')
-    .insert({ content })
+    .insert({ logo_url, name_of_team, name_of_members })
     .then((data) => {
       console.log('data', data);
       response.status(201).redirect('/cohorts');
