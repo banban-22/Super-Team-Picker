@@ -3,4 +3,40 @@ const morgan = require('morgan');
 const path = require('path');
 const ejs = require('ejs');
 const methodOverride = require('method-override');
-const knex = require('./db/knex');
+// const knex = require('./db/knex');
+
+const app = express();
+
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+
+app.use(morgan('dev'));
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(
+  methodOverride((request, response) => {
+    if (request.body._method) {
+      const method = request.body._method;
+      delete request.body._method;
+      return method;
+    }
+  })
+);
+
+// Router to Home
+app.get('/', (request, response) => {
+  response.render('welcome');
+});
+
+const cohortRouter = require('./routes/cohorts');
+app.use('/cohorts', cohortRouter);
+
+const PORT = 3000;
+const DOMAIN = 'localhost';
+
+app.listen(PORT, DOMAIN, () => {
+  console.log(`Server is running on http://${DOMAIN}:${PORT}`);
+});
