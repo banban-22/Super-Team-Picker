@@ -34,7 +34,7 @@ router.post('/new', (request, response) => {
     .catch((err) => console.error(err));
 });
 
-router.get('/cohorts/:id' , (request , response) => {
+router.get('/:id' , (request , response) => {
   const { id } = request.params;
   knex('teams')
   .where('id' , id)
