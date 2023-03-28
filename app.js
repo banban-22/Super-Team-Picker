@@ -3,7 +3,7 @@ const morgan = require('morgan');
 const path = require('path');
 const ejs = require('ejs');
 const methodOverride = require('method-override');
-// const knex = require('./db/knex');
+
 
 const app = express();
 
@@ -11,7 +11,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 app.set('view engine', 'ejs');
-app.set('views', 'views');
+app.set('views', path.join(__dirname, 'views'));
 
 app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, 'public')));
