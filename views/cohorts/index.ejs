@@ -4,14 +4,22 @@
   <h1>Show All Cohorts</h1>
   <div class="d-flex flex-row flex-wrap">
   <% cohorts.forEach((cohort) =>{ %>
-  <div class="card mx-2" style="width: 18rem">
+  <div class="card mx-2 my-2" style="width: 18rem">
     <div class="card-body">
       <div class="d-flex flex-row">
-        <img
+        <% if (cohort.logo_url === '') { %>
+            <img
           class="rounded-circle w-25"
-          src="<%= cohort.logo_url %>"
+          src='../../public/image/no-image.jpg'
           alt="<%= cohort.name_of_team %>"
         />
+        <% } else { %>
+            <img
+          class="rounded-circle w-25"
+          src='<%= cohort.logo_url %>'
+          alt="<%= cohort.name_of_team %>"
+        />
+        <% } %>
         <h5 class="card-title mt-auto p-2"><%= cohort.name_of_team %></h5>
       </div>
       <p class="card-text"><%= cohort.name_of_members%></p>
