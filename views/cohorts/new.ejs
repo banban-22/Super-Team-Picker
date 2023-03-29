@@ -15,7 +15,7 @@
     </div>
 
     <div class="form-group">
-      <label for="name_of_team">Name of Team</label>
+      <label for="name_of_team">Name of Team (required)</label>
       <input
         type="text"
         id="name_of_team"
@@ -26,7 +26,7 @@
     </div>
 
     <div class="form-group">
-      <label for="name_of_members">Name of Members</label>
+      <label for="name_of_members">Name of Members (required)</label>
       <textarea
         name="name_of_members"
         id="name_of_members"
@@ -37,7 +37,11 @@
       ></textarea>
     </div>
 
-    <button type="submit" value="submit" class="btn btn-primary">Submit</button>
+    <div class="text-right">
+      <button type="submit" value="submit" class="btn btn-outline-primary">
+        Submit
+      </button>
+    </div>
   </form>
 </div>
 <%- include('../partials/footer') %>
