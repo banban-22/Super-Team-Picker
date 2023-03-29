@@ -2,6 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
 const methodOverride = require('method-override');
+const ejs = require('ejs');
 
 const app = express();
 
