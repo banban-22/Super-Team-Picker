@@ -33,11 +33,22 @@
                             </div>
                         </form>
                         <% if (final) {%>
-                            <ol class="list-group list-group-numbered list-group-flush mt-3">
-                                <% for (let i of final) {%>
-                                    <li class="list-group-item"><%= i %></li>
-                                <% } %>
-                            </ol>
+                            <table class="table mt-3">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Members</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% for (let i = 0 ; i < final.length ; i++) {%>
+                                        <tr>
+                                            <th scope="row"><%= i + 1 %></th>
+                                            <td><%= final[i] %></td>
+                                        </tr>
+                                    <% } %>
+                                </tbody>
+                            </table>
                         <% } %>
                     </li>
                 </ul>
