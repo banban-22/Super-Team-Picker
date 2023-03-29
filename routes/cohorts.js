@@ -1,6 +1,8 @@
 const express = require('express');
 const db = require('../db/client');
 const router = express.Router();
+const url = require('url')
+const querystring = require('querystring');
 
 // --------------- INDEX ----------------
 router.get('/', (request, response) => {
@@ -88,5 +90,65 @@ router.post('/new', (request, response) => {
 //       response.status(500).render('error', { err });
 //     });
 // });
+
+router.get('/:id' , (request , response) => {
+  const { id } = request.params;
+  const parsedurl = url.parse(request.url);
+  const query = querystring.parse(parsedurl.query);
+  let number = query.number;
+  db('teams')
+  .where('id' , id)
+  .first()
+  .then(data => {
+    let members = data.name_of_members.split(',');
+    if (number && query.radio){
+      if ( members.length < number){
+        response.send('<h2>The number of teams should be less than the number of members.</h2>');
+      } else {
+
+        let temp = [];
+        let final = [];
+
+        function split(arr){
+            if (arr.length == 1){
+                temp.push(arr[0]);
+            } else {
+                let random = Math.floor(Math.random() * arr.length);
+                temp.push(arr[random]);
+                arr.splice(random , 1);
+                split(arr);
+            }
+        };
+        split(members);
+
+        if (query.radio == 'member'){
+
+          number = Math.ceil(temp.length/number);
+        
+        };
+
+        for (let i = 0 ; i < number ; i++){
+            final.push([]);
+        };
+
+        while (temp.length != 0){
+            for (let j = 0 ; j < number ; j++){
+                final[j].push(temp.pop());
+                if (temp.length == 0){
+                    break;
+                }
+            }
+        };
+
+        response.render('cohorts/show' , { data , final })
+
+      }      
+    } else {
+      response.render('cohorts/show' , { data , final:'' });
+    }
+  }).catch(err => {
+    console.error(err);
+  })
+});
 
 module.exports = router;
