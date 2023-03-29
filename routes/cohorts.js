@@ -61,11 +61,12 @@ router.get('/:id' , (request , response) => {
             }
         };
         split(members);
+        
         if (query.radio == 'member'){
 
           number = Math.ceil(temp.length/number);
         
-        }
+        };
 
         for (let i = 0 ; i < number ; i++){
             final.push([]);
