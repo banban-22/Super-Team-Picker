@@ -38,22 +38,22 @@ router.post('/new', (request, response) => {
 });
 
 // --------------- DELETE A TEAM ----------------
-router.delete('/:id', (request, response) => {
-  const { id } = request.params;
-  console.log(id);
+// router.delete('/:id', (request, response) => {
+//   const { id } = request.params;
+//   console.log(id);
 
-  knex('teams')
-    .del()
-    .where('id', id)
-    .then((data) => {
-      console.log(data);
-      response.status(200).redirect('/cohorts');
-    })
-    .catch((err) => {
-      console.error(err);
-      response.status(500).render('error', { err });
-    });
-});
+//   knex('teams')
+//     .del()
+//     .where('id', id)
+//     .then((data) => {
+//       console.log(data);
+//       response.status(200).redirect('/cohorts');
+//     })
+//     .catch((err) => {
+//       console.error(err);
+//       response.status(500).render('error', { err });
+//     });
+// });
 
 // --------------- EDIT A TEAM ----------------
 router.get('/:id/edit', (request, response) => {
