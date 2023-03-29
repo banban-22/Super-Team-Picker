@@ -1,3 +1,4 @@
+
 const express = require('express');
 const db = require('../db/client');
 const router = express.Router();
@@ -150,5 +151,54 @@ router.get('/:id' , (request , response) => {
     console.error(err);
   })
 });
+
+router.get('/:id/edit', (request, response) => {
+  const { id } = request.params; 
+  db("teams")
+      .where("id", id)
+      .then(team => {
+          console.log(team)
+          response.render('cohorts/edit', ...team );
+      })
+      .catch(ex => {
+          console.error(ex);
+          response.send("<h1>Something went wrong</h1>")
+      });
+
+})
+
+router.patch('/:id', (request, response) => {
+  
+  let { logo_url, name_of_team, name_of_members } = request.body;
+
+  db('teams')
+      .update({
+          logo_url: logo_url,
+          name_of_team: name_of_team,
+          name_of_members : name_of_members 
+      })
+      .where("id", request.params.id)
+      .then(data => {
+          response.redirect("/cohorts/" + request.params.id);
+      })
+      .catch(ex => {
+          console.error(ex);
+          response.send("<h1>Something went wrong</h1>")
+      });
+})
+router.delete('/:id', (request, response) => {
+  //delete post
+  db("teams")
+      .del()
+      .where("id", request.params.id)
+      .then(data => {
+          response.redirect("/cohorts");
+      })
+      .catch(ex => {
+          console.error(ex);
+          response.send("<h1>Something went wrong</h1>")
+      });
+})
+
 
 module.exports = router;

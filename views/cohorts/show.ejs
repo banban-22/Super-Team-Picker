@@ -1,8 +1,8 @@
 <%- include('../partials/header') %>
     <div class="container d-flex justify-content-center mt-4">
         <div class="card mb-3 mt-3" style="width: 35rem;">
-            <div class="card-body d-flex justify-content-center" style="width:35rem">
-                <ul class="list-group list-group-flush">
+            <div class="card-body d-flex justify-content-center text-wrap" style="width:35rem">
+                <ul class="list-group list-group-flush text-wrap" style="width:35rem">
                     <li class="list-group-item">
                         <h2 class="card-title text-wrap" >
                             <%= data.name_of_team %>
@@ -33,7 +33,7 @@
                             </div>
                         </form>
                         <% if (final) {%>
-                            <table class="table mt-3">
+                            <table>
                                 <thead>
                                     <tr>
                                         <th scope="col">#</th>
@@ -42,9 +42,9 @@
                                 </thead>
                                 <tbody>
                                     <% for (let i = 0 ; i < final.length ; i++) {%>
-                                        <tr>
+                                        <tr class="text-justify" style="width:5rem;">
                                             <th scope="row"><%= i + 1 %></th>
-                                            <td><%= final[i] %></td>
+                                            <td class="text-wrap" style="width:35rem;"><%= final[i] %></td>
                                         </tr>
                                     <% } %>
                                 </tbody>
@@ -53,6 +53,13 @@
                     </li>
                 </ul>
             </div>
+            <div class="card-footer">
+                <a class="btn btn-warning float-end" href="/cohorts/<%=  data.id %>/edit">Edit Post</a>
+                <form class="float-start" action="/cohorts/<%=  data.id %>" method="POST">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <input type="submit" class="btn btn-danger" value="Delete"/>
+                </form></div>
+        </div>
         </div>
     </div>
 <%- include('../partials/footer') %>
