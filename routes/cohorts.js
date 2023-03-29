@@ -4,19 +4,22 @@ const db = require('../db/client');
 const router = express.Router();
 const url = require('url')
 const querystring = require('querystring');
+
+
+// --------------- INDEX ----------------
 router.get('/', (request, response) => {
   db('teams')
-    // .select('id', 'name_of_team', 'name_of_members', 'created_at')
-    // .orderBy('created_at', 'DESC')
     .then((cohorts) => {
       console.log('cohorts', cohorts);
       response.status(200).render('cohorts/index', { cohorts });
     })
     .catch((err) => {
       console.error(err);
-      //   response.status(500).render('error', { err });
+      response.status(500).render('error', { err });
     });
 });
+
+// --------------- CREATE NEW TEAM ----------------
 
 router.get('/new', (request, response) => {
   response.render('cohorts/new');
@@ -32,8 +35,13 @@ router.post('/new', (request, response) => {
       console.log('data', data);
       response.status(201).redirect('/cohorts');
     })
-    .catch((err) => console.error(err));
+    .catch((err) => {
+      console.error(err);
+      response.status(500).render('error', { err });
+    });
 });
+
+
 
 router.get('/:id' , (request , response) => {
   const { id } = request.params;
@@ -64,7 +72,7 @@ router.get('/:id' , (request , response) => {
             }
         };
         split(members);
-        
+
         if (query.radio == 'member'){
 
           number = Math.ceil(temp.length/number);
@@ -95,9 +103,10 @@ router.get('/:id' , (request , response) => {
   })
 });
 
+
 router.get('/:id/edit', (request, response) => {
   const { id } = request.params; 
-  db("teams")
+   db("teams")
       .where("id", id)
       .then(team => {
           console.log(team)
