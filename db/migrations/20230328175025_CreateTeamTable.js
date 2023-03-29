@@ -5,8 +5,8 @@
 exports.up = function (knex) {
   return knex.schema.createTable('teams', (table) => {
     table.bigIncrements('id').primary();
-    table.string('name_of_team');
-    table.string('name_of_members');
+    table.string('name_of_team').unique().notNullable();
+    table.string('name_of_members').notNullable();
     table.string('logo_url');
     table.timestamps(true, true);
   });

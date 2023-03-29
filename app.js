@@ -1,12 +1,12 @@
 const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
-const ejs = require('ejs');
 const methodOverride = require('method-override');
-// const knex = require('./db/knex');
+const ejs = require('ejs');
 
 const app = express();
 
+// parsing the URL-encoded data with the query string library for POST request
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
