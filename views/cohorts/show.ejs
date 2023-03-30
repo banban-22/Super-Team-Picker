@@ -2,7 +2,7 @@
 
 <div class="container d-flex justify-content-center mt-4">
   <div class="card mb-3 mt-3" style="width:35rem">
-    <div class="card-body justify-content-center" style="width:35rem">
+    <div class="card-body justify-content-center mw-100">
       <ul class="list-group list-group-flush">
         <li class="list-group-item text-wrap">
           <h2 class="card-title text-capitalize"><%= data.name_of_team %></h2>
@@ -48,8 +48,8 @@
             </div>
           </form>
           <% if (final) {%>
-          <table class="table mt-3 text-wrap" style="width:15rem">
-            <thead>
+          <table class="table mt-3">
+            <thead class="mw-100">
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">Members</th>
@@ -59,7 +59,7 @@
               <% for (let i = 0 ; i < final.length ; i++) {%>
               <tr>
                 <th scope="row"><%= i + 1 %></th>
-                <td class="text-capitalize text-wrap"><%= final[i] %></td>
+                <td class="text-capitalize"><%= final[i] %></td>
               </tr>
               <% } %>
             </tbody>
