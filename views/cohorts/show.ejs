@@ -1,12 +1,12 @@
 <%- include('../partials/header') %>
 
 <div class="container d-flex justify-content-center mt-4">
-  <div class="card mb-3 mt-3" style="width: 35rem">
-    <div class="card-body d-flex justify-content-center" style="width: 35rem">
+  <div class="card mb-3 mt-3" style="width:35rem">
+    <div class="card-body justify-content-center" style="width:35rem">
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">
-          <h2 class="card-title"><%= data.name_of_team %></h2>
-          <p class="card-text"><%= data.name_of_members %></p>
+        <li class="list-group-item text-wrap">
+          <h2 class="card-title text-capitalize"><%= data.name_of_team %></h2>
+          <p class="card-text text-wrap text-capitalize"><%= data.name_of_members %></p>
         </li>
         <li class="list-group-item">
           <form action="/cohorts/<%= data.id %>" method="get">
@@ -44,11 +44,11 @@
               />
             </div>
             <div class="text-center">
-              <button class="btn btn-outline-primary">Assign Teams</button>
+              <button class="btn btn-outline-primary btn-block">Assign Teams</button>
             </div>
           </form>
           <% if (final) {%>
-          <table class="table mt-3">
+          <table class="table mt-3 text-wrap" style="width:15rem">
             <thead>
               <tr>
                 <th scope="col">#</th>
@@ -59,7 +59,7 @@
               <% for (let i = 0 ; i < final.length ; i++) {%>
               <tr>
                 <th scope="row"><%= i + 1 %></th>
-                <td><%= final[i] %></td>
+                <td class="text-capitalize text-wrap"><%= final[i] %></td>
               </tr>
               <% } %>
             </tbody>
