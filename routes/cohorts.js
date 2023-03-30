@@ -4,11 +4,6 @@ const db = require('../db/client');
 const router = express.Router();
 const url = require('url')
 const querystring = require('querystring');
-const express = require('express');
-const db = require('../db/client');
-const router = express.Router();
-const url = require('url')
-const querystring = require('querystring');
 
 
 // --------------- INDEX ----------------
