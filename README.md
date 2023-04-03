@@ -2,9 +2,7 @@
 
 ## What are the feature of your software?
 
-1.
-2.
-3.
+1. Divided team members as fairly as we could
 
 ## The technologies that has been used in your software?
 
