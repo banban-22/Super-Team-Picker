@@ -8,13 +8,13 @@
 
 1. express - popular and powerful web application framework for Node.js
 
-   ⋅⋅⋅ a fast and lightweight framework that allows you to build web applications quickly and efficiently⋅⋅
+   ⋅⋅⋅a fast and lightweight framework that allows you to build web applications quickly and efficiently⋅⋅
 
-   ⋅⋅⋅ provides a simple way to define routes for your web application. You can define different routes for different HTTP methods (such as GET, POST, PUT, DELETE) and handle the requests and responses accordingly.⋅⋅
+   ⋅⋅⋅provides a simple way to define routes for your web application. You can define different routes for different HTTP methods (such as GET, POST, PUT, DELETE) and handle the requests and responses accordingly.⋅⋅
 
-   ⋅⋅⋅ It is highly scalable and can handle large volumes of traffic without slowing down or crashing⋅⋅
+   ⋅⋅⋅It is highly scalable and can handle large volumes of traffic without slowing down or crashing⋅⋅
 
-   ⋅⋅⋅ It has a large and active community of developers who contribute to its development and provide support for other users⋅⋅
+   ⋅⋅⋅It has a large and active community of developers who contribute to its development and provide support for other users⋅⋅
 
 2. knex with PostgreSQL (pg)
    ⋅⋅1. allows easy migration between different databases, so you can switch from PostgreSQL to another database in the future, you can easily do so without having to rewrite your entire codebase.
