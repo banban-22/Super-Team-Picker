@@ -103,6 +103,7 @@ router.get('/:id' , (request , response) => {
   })
 });
 
+// --------------- EDIT TEAM ----------------
 
 router.get('/:id/edit', (request, response) => {
   const { id } = request.params; 
@@ -138,6 +139,10 @@ router.patch('/:id', (request, response) => {
           response.send("<h1>Something went wrong</h1>")
       });
 })
+
+// --------------- DELETE TEAM ----------------
+
+
 router.delete('/:id', (request, response) => {
   //delete post
   db("teams")
