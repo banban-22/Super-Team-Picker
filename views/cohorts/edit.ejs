@@ -1,12 +1,6 @@
 <%- include('../partials/header') %>
 
 <div class="container">
-
-  <h1 class="mt-3">Edit</h1>
-  <form action="/cohorts/<%= id %>" method="POST">
-    <input type="hidden" name="_method" value="PATCH">
-    <div class="form-group my-3">
-
   <h1 class="mt-3">Edit Team and Members</h1>
   <form action="/cohorts/<%= id %>" method="POST">
     <div class="form-group my-3">
@@ -33,6 +27,7 @@
         class="form-control mb-3"
         value="<%=name_of_team%>"
         placeholder="Flying Funks"
+        required
         />
     </div>
 
@@ -46,6 +41,7 @@
         cols="30"
         rows="10"
         class="form-control mb-3"
+        required
         ><%=name_of_members%></textarea>
     </div>
     <input type="submit" value="Edit post" class="btn btn-success">
