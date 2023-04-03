@@ -6,7 +6,9 @@
       <ul class="list-group list-group-flush">
         <li class="list-group-item text-wrap">
           <h2 class="card-title text-capitalize"><%= data.name_of_team %></h2>
-          <p class="card-text text-wrap text-capitalize"><%= data.name_of_members %></p>
+          <p class="card-text text-wrap text-capitalize">
+            <%= data.name_of_members %>
+          </p>
         </li>
         <li class="list-group-item">
           <form action="/cohorts/<%= data.id %>" method="get">
@@ -44,15 +46,17 @@
               />
             </div>
             <div class="text-center">
-              <button class="btn btn-outline-primary btn-block">Assign Teams</button>
+              <button class="btn btn-outline-primary btn-block">
+                Assign Teams
+              </button>
             </div>
           </form>
           <% if (final) {%>
           <table class="table mt-3">
             <thead>
               <tr>
-                <th scope="col">#</th>
-                <th scope="col">Members</th>
+                <th scope="col" style="border: none">#</th>
+                <th scope="col" style="border: none">Members</th>
               </tr>
             </thead>
             <tbody>
